@@ -1,26 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SwaggerUI from "swagger-ui-react"
+import qs from "query-string";
+import "swagger-ui-react/swagger-ui.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const params = qs.parse(window.location.search);
+const url = params.url || "https://petstore.swagger.io/v2/swagger.json";
+ 
+const App = () => <SwaggerUI url={url} />
 
 export default App;
